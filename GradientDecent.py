@@ -1,6 +1,6 @@
 import numpy as np
-
-
+import pandas as pd
+import matplotlib.pyplot as plt
 # update weights
 def gradient_decent(input, weights, target, predicted_value, learning_rate, bias):
     # find new weights abd bias
@@ -40,8 +40,8 @@ targets = np.array([0, 1, 0, 1])
 weights = np.array([0.4, 0.2, 0.6])
 bias = 0.5
 learning_rate = 0.1
-
-for epoch in range(20):
+epoch_loss = []
+for epoch in range(50):
     for input, target in zip(features, targets):
         w_sum = percepton(input, weights, bias)
         # print("Weighted_Sum: ", w_sum)
@@ -53,7 +53,16 @@ for epoch in range(20):
     predictions = sigmoid(percepton(features, weights, bias))
     # print("Predictions: ", predictions)
     average_loss = np.mean(cross_entropy(targets, predictions))
+    epoch_loss.append(average_loss)
     print("*****************************")
     print("EPOCH", str(epoch))
     print("*****************************")
     print("Average Loss: ", average_loss)
+
+# plot the average loss
+df = pd.DataFrame(epoch_loss)
+df_plot = df.plot(kind="line", grid = True).get_figure()
+df_plot.savefig("Training_Loss.pdf")
+#df_plot.show()
+plt.show()
+
