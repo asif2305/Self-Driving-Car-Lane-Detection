@@ -41,7 +41,7 @@ weights = np.array([0.4, 0.2, 0.6])
 bias = 0.5
 learning_rate = 0.1
 epoch_loss = []
-for epoch in range(50):
+for epoch in range(2):
     for input, target in zip(features, targets):
         w_sum = percepton(input, weights, bias)
         # print("Weighted_Sum: ", w_sum)

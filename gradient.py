@@ -8,7 +8,7 @@ def draw(x1, x2):
     ln = plt.plot(x1, x2, '-')
     plt.pause(0.0001)
    # time.sleep(.3)
-    #ln[0].remove()
+    ln[0].remove()
 
 
 # activation function
