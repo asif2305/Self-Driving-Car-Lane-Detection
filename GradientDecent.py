@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn import datasets
+
 # update weights
 def gradient_decent(input, weights, target, predicted_value, learning_rate, bias):
     # find new weights abd bias
